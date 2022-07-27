@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/wl43mw49p8sh8xpb?svg=true)](https://ci.appveyor.com/project/mariarykhlik/aqa-web)
