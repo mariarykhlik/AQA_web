@@ -44,7 +44,17 @@ public class OrderTest {
     }
 
     @Test
-    void shouldTestEmptyFieldMessage() {
+    void shouldTestEmptyFieldMessageForName() {
+        $("[data-test-id=name] input").setValue("");
+        $("[data-test-id=phone] input").setValue("+79876543210");
+        $("[data-test-id=agreement]").click();
+        $("button").shouldBe(exactText("Продолжить")).click();
+        $("[data-test-id=name].input_invalid .input__sub").shouldBe(exactText("Поле обязательно для " +
+                "заполнения"));
+    }
+
+    @Test
+    void shouldTestEmptyFieldMessageForPhone() {
         $("[data-test-id=name] input").setValue("Петров Иван");
         $("[data-test-id=phone] input").setValue("");
         $("[data-test-id=agreement]").click();
@@ -52,7 +62,6 @@ public class OrderTest {
         $("[data-test-id=phone].input_invalid .input__sub").shouldBe(exactText("Поле обязательно для " +
                 "заполнения"));
     }
-
     @Test
     void shouldTestCheckBoxChecked() {
         $("[data-test-id=name] input").setValue("Петров Иван");
